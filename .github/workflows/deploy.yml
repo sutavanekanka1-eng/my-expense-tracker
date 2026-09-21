@@ -18,10 +18,14 @@ jobs:
           java-version: '17'
 
       - name: Make gradlew executable
+        working-directory: expense-tracker-backend-deploy-ready
+
         run: chmod +x gradlew
 
       # Build first so a broken commit fails here, before we ever touch Railway
       - name: Build with Gradle
+        working-directory: expense-tracker-backend-deploy-ready
+
         run: ./gradlew :app:bootJar --no-daemon
 
       - name: Install Railway CLI
