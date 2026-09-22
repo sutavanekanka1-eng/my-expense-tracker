@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:9898";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:9898";
 
 // Access token lives only in memory (a module-level variable), never in
 // localStorage - if this tab reloads, it's gone and the app re-derives a
