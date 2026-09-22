@@ -32,6 +32,7 @@ jobs:
         run: npm install -g @railway/cli
 
       - name: Deploy to Railway
-        run: railway up --service ${{ secrets.RAILWAY_SERVICE_NAME }}
+        run: railway up ./expense-tracker-backend-deploy-ready --service ${{ secrets.RAILWAY_SERVICE_NAME }} --path-as-root
+
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
