@@ -54,6 +54,7 @@ api.interceptors.response.use(
 	(response) => response,
 	async (error) => {
 		const originalRequest = error.config;
+		const status = error.response?.status;
 
 		const isAuthEndpoint = originalRequest?.url?.includes("/auth/v1/");
 		if ((status !== 401 && status !== 403)|| originalRequest._retry || isAuthEndpoint) {
